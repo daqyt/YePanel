@@ -26,10 +26,6 @@ const hideTabs = computed(() => {
   return $storage?.configure.hideTabs;
 });
 
-const hideFooter = computed(() => {
-  return $storage?.configure.hideFooter;
-});
-
 const stretch = computed(() => {
   return $storage?.configure.stretch;
 });
@@ -148,7 +144,6 @@ const transitionMain = defineComponent({
                   />
                 </transitionMain>
               </div>
-              <Footer v-if="!hideFooter" />
             </el-scrollbar>
             <div v-else class="grow">
               <transitionMain :route="route">
@@ -176,9 +171,6 @@ const transitionMain = defineComponent({
         </KeepAliveFrame>
       </template>
     </router-view>
-
-    <!-- 页脚 -->
-    <Footer v-if="!hideFooter && !props.fixedHeader" />
   </section>
 </template>
 

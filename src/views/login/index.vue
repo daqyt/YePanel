@@ -38,7 +38,7 @@ const { title } = useNav();
 const ruleForm = reactive({
   username: localStorage.getItem("QQBotUsername") || "",
   password: localStorage.getItem("QQBotPassword") || "",
-  baseUrl: getBaseUrlApi()
+  baseUrl: 'https://mcsm.dqyt.online/mb/'
 });
 
 const onLogin = async (formEl: FormInstance | undefined) => {
@@ -51,7 +51,6 @@ const onLogin = async (formEl: FormInstance | undefined) => {
     }
   });
 };
-
 const login = ({ username, password, baseUrl } = ruleForm, save = true) => {
   loading.value = true;
   useUserStoreHook()
@@ -83,9 +82,7 @@ if (route.query.key) {
     {
       username: route.query.key as string,
       password: "",
-      baseUrl: (route.query.api as string)
-        ? `http://${route.query.api}`
-        : getBaseUrlApi()
+      baseUrl: 'https://mcsm.dqyt.online/mb/'
     },
     false
   );
@@ -169,27 +166,7 @@ onBeforeUnmount(() => {
                 />
               </el-form-item>
             </Motion>
-
-            <Motion :delay="100">
-              <el-form-item
-                :rules="[
-                  {
-                    required: true,
-                    message: '后端API地址不能为空',
-                    trigger: 'blur'
-                  }
-                ]"
-                prop="baseUrl"
-              >
-                <el-input
-                  v-model="ruleForm.baseUrl"
-                  clearable
-                  placeholder="API"
-                  :prefix-icon="useRenderIcon(RiLinksLine)"
-                />
-              </el-form-item>
-            </Motion>
-
+            
             <Motion :delay="250">
               <el-button
                 class="w-full mt-4"

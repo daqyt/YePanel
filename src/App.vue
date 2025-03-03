@@ -16,15 +16,15 @@ let titleTime;
 document.addEventListener("visibilitychange", () => {
   if (document.hidden) {
     OriginTitile = document.title;
-    document.title = "我才不是柚子厨呢";
+    document.title = "你去哪里了!";
     clearTimeout(titleTime);
   } else {
-    document.title = "Ciallo～(∠・ω< )⌒☆";
-    titleTime = setTimeout(() => {
+    document.title = "我又找到你了";
+     titleTime = setTimeout(() => {
       document.title = OriginTitile;
     }, 2000);
   }
-});
+}); 
 
 export default defineComponent({
   name: "app",
