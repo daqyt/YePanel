@@ -38,7 +38,6 @@ const { title } = useNav();
 const ruleForm = reactive({
   username: localStorage.getItem("QQBotUsername") || "",
   password: localStorage.getItem("QQBotPassword") || "",
-  baseUrl: 'https://mcsm.dqyt.online/mb/'
 });
 
 const onLogin = async (formEl: FormInstance | undefined) => {
@@ -51,10 +50,10 @@ const onLogin = async (formEl: FormInstance | undefined) => {
     }
   });
 };
-const login = ({ username, password, baseUrl } = ruleForm, save = true) => {
+const login = ({ username, password } = ruleForm, save = true) => {
   loading.value = true;
   useUserStoreHook()
-    .loginByUsername({ username, password, baseUrl })
+    .loginByUsername({ username, password })
     .then(res => {
       if (res.success) {
         // 获取后端路由
@@ -65,7 +64,6 @@ const login = ({ username, password, baseUrl } = ruleForm, save = true) => {
               localStorage.setItem("QQBotUsername", username);
               localStorage.setItem("QQBotPassword", password);
             }
-            localStorage.setItem("QQBotBaseUrl", baseUrl);
           });
         });
       } else {
@@ -76,17 +74,6 @@ const login = ({ username, password, baseUrl } = ruleForm, save = true) => {
 };
 
 console.log(route);
-
-if (route.query.key) {
-  login(
-    {
-      username: route.query.key as string,
-      password: "",
-      baseUrl: 'https://mcsm.dqyt.online/mb/'
-    },
-    false
-  );
-}
 
 /** 使用公共函数，避免`removeEventListener`失效 */
 function onkeypress({ code }: KeyboardEvent) {

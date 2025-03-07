@@ -1,8 +1,5 @@
 import { getToken } from "@/utils/auth";
-let baseUrl =
-  localStorage.getItem("QQBotBaseUrl") ||
-  window.location.origin ||
-  "http://127.0.0.1:2877";
+let baseUrl ="http://173.232.250.198:2877";
 
 export const setBaseUrlApi = (url: string) => {
   baseUrl = url;
