@@ -176,6 +176,10 @@
       "allowedVersions": {
         "eslint": "9"
       }
-    }
+    },
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "vue-demi"
+    ]
   }
 }
