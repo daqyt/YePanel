@@ -1,5 +1,5 @@
 import { getToken } from "@/utils/auth";
-let baseUrl ="http://173.232.250.198:2877";
+let baseUrl = "https://panelapi.tooldelta.top";
 
 export const setBaseUrlApi = (url: string) => {
   baseUrl = url;
