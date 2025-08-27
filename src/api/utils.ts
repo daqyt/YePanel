@@ -1,5 +1,5 @@
 import { getToken } from "@/utils/auth";
-let baseUrl = "https://panelapi.tooldelta.top";
+let baseUrl = "https://api.tooldelta.top/yepanel";
 
 export const setBaseUrlApi = (url: string) => {
   baseUrl = url;
